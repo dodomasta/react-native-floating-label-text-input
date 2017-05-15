@@ -21,7 +21,6 @@ class FloatingLabel extends Component {
     }
 
     this.state = {
-      height: 45,
       paddingAnim: new Animated.Value(initialPadding),
       opacityAnim: new Animated.Value(initialOpacity)
     }
@@ -84,6 +83,7 @@ class FloatLabelTextField extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      height: 45,
       focused: false,
       text: this.props.value
     }
