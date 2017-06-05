@@ -59,13 +59,13 @@ class TextFieldHolder extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      marginAnim: new Animated.Value(this.props.withValue ? 10 : 0)
+      marginAnim: new Animated.Value(this.props.withValue ? 35 : 0)
     }
   }
 
   componentWillReceiveProps(newProps) {
     return Animated.timing(this.state.marginAnim, {
-      toValue: newProps.withValue ? 10 : 0,
+      toValue: newProps.withValue ? 35 : 0,
       duration: 230
     }).start()
   }
@@ -110,7 +110,7 @@ class FloatLabelTextField extends Component {
         style={[
           {
             flex: 1,
-            height: Math.max(45, this.state.height + 16),
+            // height: Math.max(45, this.state.height + 16),
             backgroundColor: "white",
             justifyContent: "center"
           }
@@ -136,7 +136,7 @@ class FloatLabelTextField extends Component {
                     // height: (Platform.OS == 'ios' ? 20 : 60),
                     fontSize: 16,
                     color: "#111111",
-                    height: Math.max(45, this.state.height)
+                    height: this.props.height
                   }
                 ]}
                 defaultValue={this.props.defaultValue}
@@ -206,8 +206,8 @@ class FloatLabelTextField extends Component {
   setText(value) {
     this.setState({
       // text: value
-      text: value.nativeEvent.text,
-      height: value.nativeEvent.contentSize.height
+      text: value.nativeEvent.text
+      // height: value.nativeEvent.contentSize.height
     })
     try {
       return this.props.onChangeTextValue(value)
